@@ -150,7 +150,7 @@ namespace LinearAlgebra
             {
                 for (int j = 0; j < Y; j++)
                 {
-                    c += ToMatrix[i, j].ToString(dec) + " ";
+                    c += _matrix[i, j].ToString(dec) + " ";
                 }
                 c += "\n";
             }
