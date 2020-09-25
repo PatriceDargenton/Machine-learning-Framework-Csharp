@@ -9,7 +9,12 @@ using LinearAlgebra;
 
 class MainClass {
     public static void Main (string[] args) {
-        FifthNN ();
+        
+        FifthNN();    // works fine!
+        //FourthNN(); // does not work!
+        //ThirdNN();  // does not work!
+        //SecondNN(); // does not work!
+        //FirstNN();  // does not work!
 
         /*        var test = new Tensor ((Matrix) new double[, ] { {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 } }, true);
                 var t1 = Sigmoid.Forward (test);
@@ -21,8 +26,12 @@ class MainClass {
     static void FifthNN () {
         var r = new Random ();
 
-        var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
-        var target = new Tensor ((Matrix) new double[, ] { { 1 }, { 0 }, { 0 }, { 1 } }, true);
+        // ???
+        //var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
+        //var target = new Tensor ((Matrix) new double[, ] { { 1 }, { 0 }, { 0 }, { 1 } }, true);
+        // XOR: works!
+        var data = new Tensor((Matrix)new double[,] { { 1, 0 }, { 0, 0 }, { 0, 1 }, { 1, 1 } }, true);
+        var target = new Tensor((Matrix)new double[,] { { 1 }, { 0 }, { 1 }, { 0 } }, true);
 
         var seq = new Sequential ();
         seq.Layers.Add (new Linear (2, 5, r));
@@ -36,7 +45,7 @@ class MainClass {
 
         var mse = new MeanSquaredError ();
 
-        for (var i = 0; i < 300; i++) {
+        for (var i = 0; i < 400; i++) {
             var pred = seq.Forward (data);
 
             var loss = mse.Forward (pred, target);
@@ -47,11 +56,16 @@ class MainClass {
             Console.WriteLine ($"Epoch: {i} Loss: {loss}");
         }
     }
+    
     static void FourthNN () {
         var r = new Random ();
 
-        var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
-        var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // ???
+        //var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
+        //var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // XOR: does not work!
+        var data = new Tensor((Matrix)new double[,] { { 1, 0 }, { 0, 0 }, { 0, 1 }, { 1, 1 } }, true);
+        var target = new Tensor((Matrix)new double[,] { { 1 }, { 0 }, { 1 }, { 0 } }, true);
 
         var seq = new Sequential ();
         seq.Layers.Add (new Linear (2, 3, r));
@@ -76,8 +90,12 @@ class MainClass {
     static void ThirdNN () {
         var r = new Random ();
 
-        var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
-        var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // ???
+        //var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
+        //var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // XOR: does not work!
+        var data = new Tensor((Matrix)new double[,] { { 1, 0 }, { 0, 0 }, { 0, 1 }, { 1, 1 } }, true);
+        var target = new Tensor((Matrix)new double[,] { { 1 }, { 0 }, { 1 }, { 0 } }, true);
 
         var seq = new Sequential ();
         seq.Layers.Add (new Linear (2, 3, r));
@@ -101,8 +119,12 @@ class MainClass {
     static void SecondNN () {
         var r = new Random ();
 
-        var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
-        var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // ???
+        //var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
+        //var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // XOR: does not work!
+        var data = new Tensor((Matrix)new double[,] { { 1, 0 }, { 0, 0 }, { 0, 1 }, { 1, 1 } }, true);
+        var target = new Tensor((Matrix)new double[,] { { 1 }, { 0 }, { 1 }, { 0 } }, true);
 
         var weights = new List<Tensor> ();
         weights.Add (new Tensor (Matrix.Random (2, 3, r), true));
@@ -126,8 +148,12 @@ class MainClass {
     static void FirstNN () {
         var r = new Random ();
 
-        var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
-        var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // ???
+        //var data = new Tensor ((Matrix) new double[, ] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, true);
+        //var target = new Tensor ((Matrix) new double[, ] { { 0 }, { 1 }, { 0 }, { 1 } }, true);
+        // XOR: does not work!
+        var data = new Tensor((Matrix)new double[,] { { 1, 0 }, { 0, 0 }, { 0, 1 }, { 1, 1 } }, true);
+        var target = new Tensor((Matrix)new double[,] { { 1 }, { 0 }, { 1 }, { 0 } }, true);
 
         var weights = new List<Tensor> ();
         weights.Add (new Tensor (Matrix.Random (2, 3, r), true));
